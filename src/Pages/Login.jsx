@@ -7,30 +7,26 @@ import * as yup from "yup";
 import yuppassword from "yup-password";
 import { myContext } from "../Context/Authcontext.jsx";
 const Login = () => {
-    
-  
   const navigate = useNavigate();
   yuppassword(yup);
   const schema = yup.object().shape({
-    username: yup
-      .string().required("username is required"),
+    username: yup.string().required("username is required"),
 
     password: yup
       .string()
       .min(6, "Password must contain atleast 6 characters")
       .required("Password is required"),
   });
-  const {login} = useContext(myContext)
+  const { login } = useContext(myContext);
   const loginformik = useFormik({
     initialValues: { username: "", password: "" },
     validationSchema: schema,
     onSubmit: async (values) => {
       try {
-       await login(values)
-       setTimeout(() => {
-        
-         navigate("/")
-       }, 1000);
+        await login(values);
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       } catch (error) {
         toast("Server Error");
       }

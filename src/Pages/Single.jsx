@@ -32,7 +32,11 @@ const Single = () => {
   return (
     <div className="flex gap-12">
       <div className="flex-5 flex flex-col gap-8" id="content">
-        <img src={`../upload/${post?.img}` || null} alt="" className="w-full h-[300px] object-cover" />{" "}
+        <img
+          src={`../upload/${post?.img}` || null}
+          alt=""
+          className="w-full h-[300px] object-cover"
+        />{" "}
         <div className="flex items-center gap-2 text-base mt-3" id="user">
           {post.userImg !== "null" ? (
             <img

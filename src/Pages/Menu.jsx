@@ -10,7 +10,7 @@ const Menu = ({ cat }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const postId = location.pathname.split("/")[2];
- 
+
   /* Fetching the posts data*/
 
   const fetchdata = async () => {

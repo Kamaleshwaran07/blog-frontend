@@ -33,7 +33,7 @@ const Write = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const imgUrl = await upload();
-    console.log(state.id)
+    console.log(state.id);
     try {
       state
         ? await axios.put(

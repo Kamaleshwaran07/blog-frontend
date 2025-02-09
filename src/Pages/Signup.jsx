@@ -9,7 +9,7 @@ import checked from "../assets/checked.png";
 import cross from "../assets/delete.png";
 const Signup = () => {
   yuppassword(yup);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -36,8 +36,8 @@ const Signup = () => {
     onSubmit: async (values) => {
       try {
         const res = await axios.post(`${baseurl}/api/auth/register`, values);
-        toast(res.data)
-        navigate("/login")
+        toast(res.data);
+        navigate("/login");
         console.log(res.data);
       } catch (error) {
         console.error(error);
