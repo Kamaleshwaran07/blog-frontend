@@ -15,7 +15,7 @@ const Write = () => {
   const { baseurl, currentUser } = useContext(myContext);
   const [title, setTitle] = useState(state?.title || "");
   const [description, setdescription] = useState(state?.description || "");
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState([]);
   // const [date, setDate] = useState("");
   const [cat, setCat] = useState(state?.cat || "");
   const uid = currentUser?.id;
