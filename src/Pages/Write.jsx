@@ -26,7 +26,7 @@ const Write = () => {
 
     try {
       const uploadedImage = await uploadImage(imageFile);
-      console.log(uploadedImage.url)
+      // console.log(uploadedImage.url)
       setImg(uploadedImage.url);
       toast.success("Image uploaded successfully!");
     } catch (error) {
@@ -45,7 +45,7 @@ const Write = () => {
               title,
               description: description,
               cat,
-              img: img ? imgUrl : "",
+              img: img ? img : "",
             },
             { withCredentials: true }
           )
@@ -55,7 +55,7 @@ const Write = () => {
               title,
               description: description,
               cat,
-              img: img ? imgUrl : "",
+              img: img ? img : "",
               date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             },
             { withCredentials: true }
