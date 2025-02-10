@@ -10,7 +10,7 @@ export const ContextValueProvider = ({ children }) => {
   );
 
   const login = async (values) => {
-    const response = await axios.post(`${baseurl}auth/login`, values, {
+    const response = await axios.post(`${baseurl}/api/auth/login`, values, {
       withCredentials: true,
     });
 
@@ -18,7 +18,7 @@ export const ContextValueProvider = ({ children }) => {
   };
   const logout = async () => {
     const res = await axios.post(
-      `${baseurl}auth/logout`,
+      `${baseurl}/api/auth/logout`,
       {},
       {
         withCredentials: true,
