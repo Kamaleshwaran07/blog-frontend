@@ -10,7 +10,7 @@ const Home = () => {
   const cat = useLocation().search;
   const getDocument = (html) => {
     const htmlDoc = new DOMParser().parseFromString(html, "text/html");
-    return htmlDoc.body.textContent;
+    return htmlDoc.body.innerHTML;
   };
   /* Fetching the posts data*/
   const fetchdata = async () => {
