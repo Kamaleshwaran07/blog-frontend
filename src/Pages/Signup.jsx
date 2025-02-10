@@ -7,6 +7,7 @@ import * as yup from "yup";
 import yuppassword from "yup-password";
 import checked from "../assets/checked.png";
 import cross from "../assets/delete.png";
+import { myContext } from "../Context/Authcontext";
 const Signup = () => {
   yuppassword(yup);
   const navigate = useNavigate();
