@@ -33,7 +33,7 @@ const Single = () => {
     <div className="flex gap-12">
       <div className="flex-5 flex flex-col gap-8" id="content">
         <img
-          src={`../upload/${post?.img}` || null}
+          src={post?.img || null}
           alt=""
           className="w-full h-[300px] object-cover"
         />{" "}

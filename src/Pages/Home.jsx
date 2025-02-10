@@ -35,7 +35,7 @@ const Home = () => {
           >
             <div className="relative flex-2" id="img">
               <img
-                src={`../upload/${post.img}`}
+                src={post.img}
                 alt={post.title}
                 className=" w-full max-h-[400px] object-cover"
               />

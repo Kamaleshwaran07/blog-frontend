@@ -31,7 +31,7 @@ const Menu = ({ cat }) => {
       {post.map((post) => (
         <div key={post.id} className={`flex flex-col gap-3`}>
           <img
-            src={image1}
+            src={post.img}
             alt={post.title}
             className="w-full h-[200px] object-cover"
           />

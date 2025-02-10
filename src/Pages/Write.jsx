@@ -5,7 +5,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import * as yup from "yup";
 import { myContext } from "../Context/Authcontext";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import moment from "moment";
 import uploadImage from "../Components/UploadImage";
@@ -19,6 +19,7 @@ const Write = () => {
   // const [date, setDate] = useState("");
   const [cat, setCat] = useState(state?.cat || "");
   const uid = currentUser?.id;
+  const navigate = useNavigate()
   const quillRef = useRef(null);
   const handleImageUpload = async (e) => {
     const imageFile = e.target.files[0];
@@ -59,7 +60,10 @@ const Write = () => {
               date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             },
             { withCredentials: true }
-          );
+          )
+          toast.success("Blog posted")
+          navigate('/')
+          ;
     } catch (error) {
       console.log(error);
     }
