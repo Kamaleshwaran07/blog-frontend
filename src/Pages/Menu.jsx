@@ -14,7 +14,7 @@ const Menu = ({ cat }) => {
   /* Fetching the posts data*/
 
   const fetchdata = async () => {
-    const res = await axios.get(`${baseurl}posts/?cat=${cat}`);
+    const res = await axios.get(`${baseurl}/api/posts/?cat=${cat}`);
     const posts = res.data;
 
     let filter = posts.filter((pst) => pst.id !== parseFloat(postId));

@@ -26,6 +26,10 @@ const Single = () => {
     const res = await axios.delete(`${baseurl}/api/posts/${id}`);
     fetchdata();
   };
+  const getDocument = (html) => {
+    const htmlDoc = new DOMParser().parseFromString(html, "text/html");
+    return htmlDoc.body.textContent;
+  };
   useEffect(() => {
     fetchdata();
   }, [postId]);
@@ -67,7 +71,7 @@ const Single = () => {
           )}
         </div>
         <h1 className="text-4xl text-[#333]">{post?.title}</h1>
-        <p className="text-justify leading-8">{post?.description}</p>
+        <p className="text-justify leading-8">{getDocument(post?.description)}</p>
       </div>
       <div className="flex-2">
         <Menu cat={post?.cat} />{" "}

@@ -29,8 +29,8 @@ const Home = () => {
         {posts.map((post) => (
           <div
             key={post.id}
-            className={`flex  gap-[100px] ${
-              post.id % 2 !== 0 ? "flex-row-reverse" : ""
+            className={`flex gap-[100px] ${
+              post.id % 2 !== 0 ? "flex-row-reverse" : "flex-row"
             }`}
           >
             <div className="relative flex-2" id="img">
