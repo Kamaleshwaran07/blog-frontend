@@ -8,6 +8,7 @@ import { myContext } from "../Context/Authcontext";
 import { useLocation } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import moment from "moment";
+import uploadImage from "../Components/UploadImage";
 const Write = () => {
   const state = useLocation().state;
   // const [value, setValue] = useState(state.va"");
@@ -19,21 +20,22 @@ const Write = () => {
   const [cat, setCat] = useState(state?.cat || "");
   const uid = currentUser?.id;
   const quillRef = useRef(null);
-  const upload = async () => {
+  const handleImageUpload = async (e) => {
+    const imageFile = e.target.files[0];
+    if (!imageFile) return;
+
     try {
-      const formdata = new FormData();
-      formdata.append("file", img);
-      const res = await axios.post(`${baseurl}/upload`, formdata);
-      return res.data;
+      const uploadedImage = await uploadImage(imageFile);
+      setImg((prev) => [...prev, uploadedImage.url]);
+      toast.success("Image uploaded successfully!");
     } catch (error) {
-      console.error(error);
+      console.error("Image upload error:", error);
+      toast.error("Failed to upload image.");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const imgUrl = await upload();
-    // console.log(state.id);
     try {
       state
         ? await axios.put(
@@ -97,7 +99,7 @@ const Write = () => {
             alt=""
             id="file"
             className="hidden"
-            onChange={(e) => setImg(e.target.files[0])}
+            onChange={handleImageUpload}
           />
           <label htmlFor="file" className="underline cursor-pointer">
             Upload Image
