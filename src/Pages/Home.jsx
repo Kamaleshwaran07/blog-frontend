@@ -14,10 +14,10 @@ const Home = () => {
   };
   /* Fetching the posts data*/
   const fetchdata = async () => {
-    const res = await axios.get(`${baseurl}posts/${cat}`);
+    const res = await axios.get(`${baseurl}/api/posts/${cat}`);
 
     setPosts(res.data);
-    console.log(res.data);
+    // console.log(res.data);
   };
   const navigate = useNavigate();
   useEffect(() => {

@@ -18,12 +18,12 @@ const Single = () => {
 
   /* Fetching the posts data*/
   const fetchdata = async () => {
-    const res = await axios.get(`${baseurl}posts/${postId}`);
+    const res = await axios.get(`${baseurl}/api/posts/${postId}`);
 
     setPost(res.data);
   };
   const handleDelete = async (id) => {
-    const res = await axios.delete(`${baseurl}posts/${id}`);
+    const res = await axios.delete(`${baseurl}/api/posts/${id}`);
     fetchdata();
   };
   useEffect(() => {

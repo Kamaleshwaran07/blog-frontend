@@ -39,7 +39,7 @@ const Signup = () => {
         const res = await axios.post(`${baseurl}/api/auth/register`, values);
         toast(res.data);
         navigate("/login");
-        console.log(res.data);
+        // console.log(res.data);
       } catch (error) {
         console.error(error);
       }

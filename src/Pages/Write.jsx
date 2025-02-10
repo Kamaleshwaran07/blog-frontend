@@ -23,7 +23,7 @@ const Write = () => {
     try {
       const formdata = new FormData();
       formdata.append("file", img);
-      const res = await axios.post("http://localhost:8800/upload", formdata);
+      const res = await axios.post(`${baseurl}/upload`, formdata);
       return res.data;
     } catch (error) {
       console.error(error);
@@ -33,11 +33,11 @@ const Write = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const imgUrl = await upload();
-    console.log(state.id);
+    // console.log(state.id);
     try {
       state
         ? await axios.put(
-            `${baseurl}posts/${state.id}`,
+            `${baseurl}/api/posts/${state.id}`,
             {
               title,
               description: description,
@@ -47,7 +47,7 @@ const Write = () => {
             { withCredentials: true }
           )
         : await axios.post(
-            `${baseurl}posts/addpost`,
+            `${baseurl}/api/posts/addpost`,
             {
               title,
               description: description,
