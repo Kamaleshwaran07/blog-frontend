@@ -44,7 +44,7 @@ const Home = () => {
               <Link to={`/post/${post.id}`}>
                 <h1 className="text-5xl">{post.title}</h1>
               </Link>
-              <p className="text-xl line-clamp-2">{getDocument(post.desc)}</p>
+              <p className="text-xl line-clamp-2">{getDocument(post.description)}</p>
               <button
                 className="w-max px-2 py-2 border border-teal-500 text-teal-500 hover:border-white hover:text-black hover:bg-lightgreen"
                 onClick={() => navigate(`/post/${post.id}`)}

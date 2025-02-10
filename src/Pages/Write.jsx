@@ -13,7 +13,7 @@ const Write = () => {
   // const [value, setValue] = useState(state.va"");
   const { baseurl, currentUser } = useContext(myContext);
   const [title, setTitle] = useState(state?.title || "");
-  const [desc, setdesc] = useState(state?.desc || "");
+  const [description, setdescription] = useState(state?.description || "");
   const [img, setImg] = useState(null);
   // const [date, setDate] = useState("");
   const [cat, setCat] = useState(state?.cat || "");
@@ -40,7 +40,7 @@ const Write = () => {
             `${baseurl}posts/${state.id}`,
             {
               title,
-              desc: desc,
+              description: description,
               cat,
               img: img ? imgUrl : "",
             },
@@ -50,7 +50,7 @@ const Write = () => {
             `${baseurl}posts/addpost`,
             {
               title,
-              desc: desc,
+              description: description,
               cat,
               img: img ? imgUrl : "",
               date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
@@ -77,9 +77,9 @@ const Write = () => {
           <ReactQuill
             ref={quillRef}
             theme="snow"
-            value={desc}
+            value={description}
             className="h-full border-none"
-            onChange={setdesc}
+            onChange={setdescription}
           />
         </div>
       </div>
