@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const myContext = createContext();
 
-const baseurl = "https://blog-backend-mnpn.onrender.com/api/";
+const baseurl = "https://blog-backend-mnpn.onrender.com";
 export const ContextValueProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user") || null)
