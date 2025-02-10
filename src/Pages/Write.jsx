@@ -15,7 +15,7 @@ const Write = () => {
   const { baseurl, currentUser } = useContext(myContext);
   const [title, setTitle] = useState(state?.title || "");
   const [description, setdescription] = useState(state?.description || "");
-  const [img, setImg] = useState([]);
+  const [img, setImg] = useState(null);
   // const [date, setDate] = useState("");
   const [cat, setCat] = useState(state?.cat || "");
   const uid = currentUser?.id;
@@ -26,7 +26,8 @@ const Write = () => {
 
     try {
       const uploadedImage = await uploadImage(imageFile);
-      setImg((prev) => [...prev, uploadedImage.url]);
+      console.log(uploadedImage.url)
+      setImg(uploadedImage.url);
       toast.success("Image uploaded successfully!");
     } catch (error) {
       console.error("Image upload error:", error);
