@@ -68,11 +68,11 @@ const Single = () => {
           )}
         </div>
         <h1 className="text-4xl text-[#333]">{post?.title}</h1>
-        {/* <p className="text-justify leading-8">
+        <div className="text-justify leading-8">
           {post?.description
-            ? parse(post.description)
+            ? parse(post?.description)
             : "No description available"}
-        </p> */}
+        </div>
       </div>
       <div className="flex-2">
         <Menu cat={post?.cat} />{" "}
