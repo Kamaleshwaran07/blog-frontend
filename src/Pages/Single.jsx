@@ -8,7 +8,7 @@ import Menu from "./Menu";
 import { myContext } from "../Context/Authcontext";
 import axios from "axios";
 import moment from "moment";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 const Single = () => {
   const [post, setPost] = useState({});
   const { baseurl, currentUser } = useContext(myContext);
@@ -26,7 +26,7 @@ const Single = () => {
     const res = await axios.delete(`${baseurl}/api/posts/${id}`);
     fetchdata();
   };
- 
+
   useEffect(() => {
     fetchdata();
   }, [postId]);
@@ -68,7 +68,11 @@ const Single = () => {
           )}
         </div>
         <h1 className="text-4xl text-[#333]">{post?.title}</h1>
-        <p className="text-justify leading-8">{parse(post?.description)}</p>
+        <p className="text-justify leading-8">
+          {post?.description
+            ? parse(post.description)
+            : "No description available"}
+        </p>
       </div>
       <div className="flex-2">
         <Menu cat={post?.cat} />{" "}
