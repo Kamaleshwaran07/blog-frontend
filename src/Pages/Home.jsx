@@ -9,8 +9,8 @@ const Home = () => {
   const { baseurl } = useContext(myContext);
   /*Extracting the category */
   const cat = useLocation().search;
-  const getDocument = () => {
-    const html = posts[2]
+  const getDocument = (html) => {
+
     const htmlDoc = new DOMParser().parseFromString(html, "text/html");
     setDesc(htmlDoc.body.innerHTML);
   };
@@ -26,6 +26,9 @@ const Home = () => {
   useEffect(() => {
     fetchdata();
   }, [cat]);
+  useEffect(()=>{
+    getDocument(posts[2])
+  },[posts])
   return (
     <div id="home">
       <div className="flex flex-col mt-12 gap-[150px]">
